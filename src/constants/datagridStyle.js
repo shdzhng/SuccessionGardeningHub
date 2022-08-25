@@ -1,6 +1,11 @@
 import { colors } from './theme';
 
 export const datagridStyle = {
+  '&.MuiDataGrid-root': {
+    width: 'fill',
+    'padding-right': 10,
+    'padding-left': 10,
+  },
   '& .MuiDataGrid-virtualScrollerRenderZone': {
     '& .MuiDataGrid-row': {
       '&:nth-of-type(1n)': { backgroundColor: `${colors.offGrey}50` },
@@ -22,6 +27,11 @@ export const datagridStyle = {
   },
   '&.MuiDataGrid-root .MuiDataGrid-columnSeparator': {
     color: colors.darkBrown,
+  },
+  '&.MuiDataGrid-root .MuiDataGrid-cell': {
+    display: 'flex',
+    'padding-top': 7,
+    flexDirection: 'column',
   },
   '&.MuiDataGrid-root .MuiDataGrid-columnHeaderTitleContainer': {
     display: 'flex',

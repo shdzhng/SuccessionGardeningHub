@@ -94,6 +94,7 @@ function App() {
             marginTop: 4,
             borderRadius: 2,
             height: '80vh',
+            width: '70vw',
           }}
         >
           <DataGrid
