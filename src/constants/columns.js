@@ -15,7 +15,7 @@ export const columns = [
   },
   {
     field: 'successionInterval',
-    headerName: 'Succession Interval',
+    headerName: 'Interval',
     flex: 1.5,
     filterable: false,
   },
