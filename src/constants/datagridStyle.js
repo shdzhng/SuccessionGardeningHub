@@ -3,8 +3,8 @@ import { colors } from './theme';
 export const datagridStyle = {
   '&.MuiDataGrid-root': {
     width: 'fill',
-    'padding-right': 10,
-    'padding-left': 10,
+    paddingRight: 3,
+    paddingLeft: 3,
   },
   '& .MuiDataGrid-virtualScrollerRenderZone': {
     '& .MuiDataGrid-row': {

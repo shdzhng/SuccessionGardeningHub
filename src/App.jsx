@@ -6,7 +6,7 @@ import {
   GridToolbarExport,
 } from '@mui/x-data-grid';
 import { colors } from './constants/theme';
-
+import moment from 'moment';
 import {
   TextField,
   Box,
@@ -48,7 +48,7 @@ function App() {
 
   const handleRemove = () => {
     setRows(
-      rows.filter((r) => deletedRows.filter((sr) => sr.id === r.id).length < 1)
+      rows.filter((r) => deletedRows.filter((sr) => sr.id === r.id)?.length < 1)
     );
   };
 
@@ -66,6 +66,12 @@ function App() {
   };
 
   const handleDateEdit = ({ id, value }) => {
+    const isDate = moment(value, 'MM/DD/YYYY', true).isValid();
+    if (!isDate) {
+      alert('please enter a valid date');
+      return;
+    }
+
     const obj = rows.find((row) => row.id === id);
     const filteredRows = rows.filter((row) => row !== obj);
     const successionInterval = obj.successionInterval;
@@ -85,8 +91,8 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <div className="App">
         <Paper
           sx={{
             marginLeft: 2,
@@ -208,7 +214,8 @@ function App() {
                 }}
                 onClick={handleAdd}
               >
-                <PlaylistAddIcon />
+                Add <br /> Crop
+                {/* <PlaylistAddIcon /> */}
               </Button>
 
               <Button
@@ -222,7 +229,9 @@ function App() {
                 }}
                 onClick={() => setOpen(true)}
               >
-                <PlaylistRemoveIcon />
+                Remove
+                <br /> Selection
+                {/* <PlaylistRemoveIcon /> */}
               </Button>
             </ButtonGroup>
             <Button
@@ -236,7 +245,8 @@ function App() {
               }}
               onClick={handleSave}
             >
-              <SaveIcon />
+              Save
+              {/* <SaveIcon /> */}
             </Button>
 
             <Modal open={open} onClose={() => setOpen(false)}>
@@ -283,8 +293,8 @@ function App() {
             </Modal>
           </Box>
         </Paper>
-      </ThemeProvider>
-    </div>
+      </div>
+    </ThemeProvider>
   );
 }
 
